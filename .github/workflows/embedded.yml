@@ -67,7 +67,7 @@ jobs:
           RUNTIME_TEST_DISABLE: builtin.cgroup
           DISTRO: xenial
           CMAKE_FLAGS: "-include /usr/local/include/bcc/compat/linux/bpf.h -D__LINUX_BPF_H__"
-          BCC_REF: 0cafe5571865d4dcab8ff2bd398b41dbc10b42f4
+          BCC_REF: HEAD # v0.12.0 seemed to have issues building, potentially due to lack of runtime checks?
     steps:
     - uses: actions/checkout@v2
     - name: Build docker container
