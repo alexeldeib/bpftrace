@@ -21,7 +21,7 @@ jobs:
           RUN_ALL_TESTS: 1
           RUNTIME_TEST_DISABLE: builtin.cgroup
           DISTRO: bionic
-          CMAKE_FLAGS: ""
+          CMAKE_FLAGS: ''
           BCC_REF: v0.12.0
         - TYPE: Release
           NAME: debian_llvm+libclang+glibc2.27
@@ -37,7 +37,7 @@ jobs:
           RUN_ALL_TESTS: 1
           RUNTIME_TEST_DISABLE: builtin.cgroup
           DISTRO: bionic
-          CMAKE_FLAGS: ""
+          CMAKE_FLAGS: ''
           BCC_REF: v0.12.0
         - TYPE: Release
           NAME: vanilla_llvm+clang+glibc2.27
@@ -53,7 +53,7 @@ jobs:
           RUN_ALL_TESTS: 1
           RUNTIME_TEST_DISABLE: builtin.cgroup
           DISTRO: bionic
-          CMAKE_FLAGS: ""
+          CMAKE_FLAGS: ''
           BCC_REF: v0.12.0
         - TYPE: Release
           NAME: vanilla_llvm+clang+glibc2.23
@@ -69,7 +69,7 @@ jobs:
           RUN_ALL_TESTS: 1
           RUNTIME_TEST_DISABLE: builtin.cgroup
           DISTRO: xenial
-          CMAKE_FLAGS: "-include /usr/local/include/bcc/compat/linux/bpf.h -D__LINUX_BPF_H__"
+          CMAKE_FLAGS: '-include /usr/local/include/bcc/compat/linux/bpf.h -D__LINUX_BPF_H__'
           BCC_REF: v0.12.0 # v0.12.0 seemed to have issues building, potentially due to lack of runtime checks?
     steps:
     - uses: actions/checkout@v2
