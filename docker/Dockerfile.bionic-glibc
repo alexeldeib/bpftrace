@@ -66,6 +66,7 @@ RUN version=${CMAKE_VER} \
 RUN cd /usr/src/gtest \
  && cmake CMakeLists.txt \
  && make \
+ && make install \
  && cp *.a /usr/lib # copy or symlink libgtest.a and libgtest_main.a to your /usr/lib folder
 
 # Build BCC and install static libs
