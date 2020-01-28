@@ -21,6 +21,7 @@ jobs:
           RUN_ALL_TESTS: 1
           RUNTIME_TEST_DISABLE: builtin.cgroup
           DISTRO: bionic
+          CMAKE_FLAGS: ""
           BCC_REF: v0.12.0
         - TYPE: Release
           NAME: debian_llvm+libclang+glibc2.27
@@ -36,6 +37,7 @@ jobs:
           RUN_ALL_TESTS: 1
           RUNTIME_TEST_DISABLE: builtin.cgroup
           DISTRO: bionic
+          CMAKE_FLAGS: ""
           BCC_REF: v0.12.0
         - TYPE: Release
           NAME: vanilla_llvm+clang+glibc2.27
