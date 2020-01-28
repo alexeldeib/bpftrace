@@ -53,7 +53,7 @@ cmake -DCMAKE_BUILD_TYPE="$2" -DWARNINGS_AS_ERRORS:BOOL=$WARNINGS_AS_ERRORS \
       -DEMBED_LLVM:BOOL=$EMBED_LLVM -DEMBED_CLANG:BOOL=$EMBED_CLANG \
       -DEMBED_LIBCLANG_ONLY:BOOL=$EMBED_LIBCLANG_ONLY \
       -DLLVM_VERSION=$LLVM_VERSION  \
-      -DCMAKE_CXX_FLAGS=${CMAKE_FLAGS} ../
+      -DCMAKE_CXX_FLAGS="-include /usr/include/bcc/compat/linux/bpf.h -D__LINUX_BPF_H__" ../
 shift 2
 
 # It is necessary to build embedded llvm and clang targets first,
