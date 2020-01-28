@@ -7,54 +7,54 @@ jobs:
     strategy:
       matrix:
         env:
-        - TYPE: Debug
-          NAME: debian_llvm+libclang+glibc2.27
-          LLVM_VERSION: 8
-          STATIC_LINKING: ON
-          STATIC_LIBC: OFF
-          EMBED_LLVM: OFF
-          EMBED_CLANG: ON
-          EMBED_LIBCLANG_ONLY: ON
-          EMBED_BCC: OFF
-          EMBED_LIBELF: OFF
-          EMBED_BINUTILS: OFF
-          RUN_ALL_TESTS: 1
-          RUNTIME_TEST_DISABLE: builtin.cgroup
-          DISTRO: bionic
-          CMAKE_FLAGS: ""
-          BCC_REF: v0.12.0
-        - TYPE: Release
-          NAME: debian_llvm+libclang+glibc2.27
-          LLVM_VERSION: 8
-          STATIC_LINKING: ON
-          STATIC_LIBC: OFF
-          EMBED_LLVM: OFF
-          EMBED_CLANG: ON
-          EMBED_LIBCLANG_ONLY: ON
-          EMBED_BCC: OFF
-          EMBED_LIBELF: OFF
-          EMBED_BINUTILS: OFF
-          RUN_ALL_TESTS: 1
-          RUNTIME_TEST_DISABLE: builtin.cgroup
-          DISTRO: bionic
-          CMAKE_FLAGS: ""
-          BCC_REF: v0.12.0
-        - TYPE: Release
-          NAME: vanilla_llvm+clang+glibc2.27
-          LLVM_VERSION: 8
-          STATIC_LINKING: ON
-          STATIC_LIBC: OFF
-          EMBED_LLVM: ON
-          EMBED_CLANG: ON
-          EMBED_LIBCLANG_ONLY: OFF
-          EMBED_BCC: OFF
-          EMBED_LIBELF: OFF
-          EMBED_BINUTILS: OFF
-          RUN_ALL_TESTS: 1
-          RUNTIME_TEST_DISABLE: builtin.cgroup
-          DISTRO: bionic
-          CMAKE_FLAGS: ""
-          BCC_REF: v0.12.0
+        # - TYPE: Debug
+        #   NAME: debian_llvm+libclang+glibc2.27
+        #   LLVM_VERSION: 8
+        #   STATIC_LINKING: ON
+        #   STATIC_LIBC: OFF
+        #   EMBED_LLVM: OFF
+        #   EMBED_CLANG: ON
+        #   EMBED_LIBCLANG_ONLY: ON
+        #   EMBED_BCC: OFF
+        #   EMBED_LIBELF: OFF
+        #   EMBED_BINUTILS: OFF
+        #   RUN_ALL_TESTS: 1
+        #   RUNTIME_TEST_DISABLE: builtin.cgroup
+        #   DISTRO: bionic
+        #   CMAKE_FLAGS: ""
+        #   BCC_REF: v0.12.0
+        # - TYPE: Release
+        #   NAME: debian_llvm+libclang+glibc2.27
+        #   LLVM_VERSION: 8
+        #   STATIC_LINKING: ON
+        #   STATIC_LIBC: OFF
+        #   EMBED_LLVM: OFF
+        #   EMBED_CLANG: ON
+        #   EMBED_LIBCLANG_ONLY: ON
+        #   EMBED_BCC: OFF
+        #   EMBED_LIBELF: OFF
+        #   EMBED_BINUTILS: OFF
+        #   RUN_ALL_TESTS: 1
+        #   RUNTIME_TEST_DISABLE: builtin.cgroup
+        #   DISTRO: bionic
+        #   CMAKE_FLAGS: ""
+        #   BCC_REF: v0.12.0
+        # - TYPE: Release
+        #   NAME: vanilla_llvm+clang+glibc2.27
+        #   LLVM_VERSION: 8
+        #   STATIC_LINKING: ON
+        #   STATIC_LIBC: OFF
+        #   EMBED_LLVM: ON
+        #   EMBED_CLANG: ON
+        #   EMBED_LIBCLANG_ONLY: OFF
+        #   EMBED_BCC: OFF
+        #   EMBED_LIBELF: OFF
+        #   EMBED_BINUTILS: OFF
+        #   RUN_ALL_TESTS: 1
+        #   RUNTIME_TEST_DISABLE: builtin.cgroup
+        #   DISTRO: bionic
+        #   CMAKE_FLAGS: ""
+        #   BCC_REF: v0.12.0
         - TYPE: Release
           NAME: vanilla_llvm+clang+glibc2.23
           LLVM_VERSION: 8
