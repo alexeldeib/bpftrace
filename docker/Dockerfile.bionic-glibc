@@ -48,8 +48,7 @@ RUN apt-get update && apt-get install -y \
       systemtap-sdt-dev \
       python3 \
       quilt \
-      libssl-dev \
-      libgtest-dev
+      libssl-dev
 
 RUN apt remove --purge --auto-remove cmake
 RUN version=${CMAKE_VER} \
@@ -63,11 +62,12 @@ RUN version=${CMAKE_VER} \
     && make -j$(nproc) \
     && make install
 
-RUN cd /usr/src/gtest \
- && cmake CMakeLists.txt \
+RUN git clone https://github.com/google/googletest.git \
+ && mkdir ./googletest/build
+ && cd googletest/build \
+ && cmake ..
  && make \
- && make install \
- && cp *.a /usr/lib # copy or symlink libgtest.a and libgtest_main.a to your /usr/lib folder
+ && make install
 
 # Build BCC and install static libs
 RUN mkdir -p /src && git clone https://github.com/iovisor/bcc /src/bcc
