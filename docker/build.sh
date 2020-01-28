@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -eux
 
 WARNINGS_AS_ERRORS=${WARNINGS_AS_ERRORS:-OFF}
 STATIC_LINKING=${STATIC_LINKING:-OFF}
