@@ -136,7 +136,7 @@ else()
     BUILD_BYPRODUCTS ${gtest_byproducts}
     )
 endif()
-add_dependencies(bpftrace_test gtest-git-build)
+add_dependencies(bpftrace_test gtest-git)
 ExternalProject_Get_Property(gtest-git source_dir binary_dir)
 target_include_directories(bpftrace_test PUBLIC ${source_dir}/googletest/include)
 target_include_directories(bpftrace_test PUBLIC ${source_dir}/googlemock/include)
