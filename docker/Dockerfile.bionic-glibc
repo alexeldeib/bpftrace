@@ -28,8 +28,8 @@ deb-src http://apt.llvm.org/${DISTRO}/ llvm-toolchain-${DISTRO}-${LLVM_VERSION} 
 RUN apt-get update && apt-get install -y \
       bison \
       binutils-dev \
-      make \
       flex \
+      make \
       g++ \
       git \
       libelf-dev \
@@ -46,7 +46,7 @@ RUN apt-get update && apt-get install -y \
       llvm-${LLVM_VERSION}-runtime \
       libllvm${LLVM_VERSION} \
       systemtap-sdt-dev \
-      python3 \
+      python \
       quilt \
       libssl-dev
 
