@@ -50,8 +50,8 @@ RUN apt-get update && apt-get install -y \
       quilt \
       libssl-dev
 
-RUN apt remove --purge --auto-remove cmake
-RUN version=${CMAKE_VER} \
+# Install from source if using xenial due to incompatibility with older cmake
+RUN if [ "${DISTRO}" = "xenial" ]; then version=${CMAKE_VER} \
     && build=${CMAKE_BUILD} \
     && mkdir -p /tmp \
     && cd /tmp \
@@ -60,7 +60,10 @@ RUN version=${CMAKE_VER} \
     && cd cmake-${CMAKE_VER}.$build/ \
     && ./bootstrap \
     && make -j$(nproc) \
-    && make install
+    && make install \
+    ; else \
+    apt install -y cmake \
+    ; fi
 
 # Build BCC and install static libs
 RUN mkdir -p /src && git clone https://github.com/iovisor/bcc /src/bcc
