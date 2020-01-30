@@ -62,6 +62,7 @@ shift 2
 [[ $DEPS_ONLY == "ON" ]] && exit 0
 make "$@"
 
+set +e
 if [ $RUN_TESTS = 1 ]; then
   if [ "$RUN_ALL_TESTS" = "1" ]; then
     ctest -V
