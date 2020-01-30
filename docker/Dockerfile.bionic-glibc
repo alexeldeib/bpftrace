@@ -61,7 +61,7 @@ RUN if [ "${DISTRO}" == "xenial" ]; then version=${CMAKE_VER} \
     && ./bootstrap \
     && make -j$(nproc) \
     && make install \
-    fi
+    ; fi
 
 # Build BCC and install static libs
 RUN mkdir -p /src && git clone https://github.com/iovisor/bcc /src/bcc
