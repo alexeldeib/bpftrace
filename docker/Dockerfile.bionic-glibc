@@ -51,7 +51,7 @@ RUN apt-get update && apt-get install -y \
       libssl-dev
 
 RUN apt remove --purge --auto-remove cmake
-RUN version=${CMAKE_VER} \
+RUN if [ "${DISTRO}" == "xenial" ]; then version=${CMAKE_VER} \
     && build=${CMAKE_BUILD} \
     && mkdir -p /tmp \
     && cd /tmp \
@@ -60,7 +60,8 @@ RUN version=${CMAKE_VER} \
     && cd cmake-${CMAKE_VER}.$build/ \
     && ./bootstrap \
     && make -j$(nproc) \
-    && make install
+    && make install \
+    fi
 
 # Build BCC and install static libs
 RUN mkdir -p /src && git clone https://github.com/iovisor/bcc /src/bcc
