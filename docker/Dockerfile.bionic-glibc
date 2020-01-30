@@ -50,9 +50,9 @@ RUN apt-get update && apt-get install -y \
       quilt \
       libssl-dev
 
-RUN apt remove --purge --auto-remove cmake
-RUN if [ "${DISTRO}" == "xenial" ]; then version=${CMAKE_VER} \
+RUN if [ "${DISTRO}" -eq "xenial" ]; then version=${CMAKE_VER} \
     && build=${CMAKE_BUILD} \
+    && apt remove --purge --auto-remove cmake
     && mkdir -p /tmp \
     && cd /tmp \
     && curl -OL https://cmake.org/files/v${version}/cmake-${version}.${build}.tar.gz \
