@@ -52,7 +52,7 @@ RUN apt-get update && apt-get install -y \
 
 RUN if [ "${DISTRO}" -eq "xenial" ]; then version=${CMAKE_VER} \
     && build=${CMAKE_BUILD} \
-    && apt remove --purge --auto-remove cmake
+    && apt remove --purge --auto-remove cmake \
     && mkdir -p /tmp \
     && cd /tmp \
     && curl -OL https://cmake.org/files/v${version}/cmake-${version}.${build}.tar.gz \
