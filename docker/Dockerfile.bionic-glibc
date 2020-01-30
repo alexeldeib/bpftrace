@@ -50,9 +50,9 @@ RUN apt-get update && apt-get install -y \
       quilt \
       libssl-dev
 
+# Install from source if using xenial due to incompatibility with older cmake
 RUN if [ "${DISTRO}" = "xenial" ]; then version=${CMAKE_VER} \
     && build=${CMAKE_BUILD} \
-    && apt remove --purge --auto-remove cmake \
     && mkdir -p /tmp \
     && cd /tmp \
     && curl -OL https://cmake.org/files/v${version}/cmake-${version}.${build}.tar.gz \
@@ -61,6 +61,8 @@ RUN if [ "${DISTRO}" = "xenial" ]; then version=${CMAKE_VER} \
     && ./bootstrap \
     && make -j$(nproc) \
     && make install \
+    ; else \
+    apt install -y cmake \
     ; fi
 
 # Build BCC and install static libs
