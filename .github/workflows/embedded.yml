@@ -69,10 +69,11 @@ jobs:
     - name: unpack vmlinuz
       run: |
         ls / -al
-        SKIP=$(sudo grep -a -b -o -m 1 $'\x1f\x8b\x08\x00' /boot/vmlinuz-$(uname -r) | cut -d: -f 1)
+        LOC=$(sudo grep -a -b -o -m 1 $'\x1f\x8b\x08\x00' /boot/vmlinuz-$(uname -r))
+        SKIP=$(echo loc  | cut -d: -f 1)
         echo "SKIP: "
-        echo $SKIP
-        sudo dd if=/boot/vmlinuz-$(uname -r) skip=`sudo grep -a -b -o -m 1 $'\x1f\x8b\x08\x00' /boot/vmlinuz-$(uname -r) | tail -n +1 | cut -d: -f 1` bs=1 | zcat > ${GITHUB_WORKSPACE}/vmlinux
+        echo ${SKIP}
+        sudo dd if=/boot/vmlinuz-$(uname -r) skip=${SKIP} bs=1 | zcat > ${GITHUB_WORKSPACE}/vmlinux
     - name: Build docker container
       run: |
         docker build -t bpftrace-embedded-${{ matrix.env['DISTRO'] }} -f docker/Dockerfile.ubuntu-glibc --build-arg bcc_ref=${{ matrix.env['BCC_REF'] }} --build-arg DISTRO=${{ matrix.env['DISTRO'] }}  docker/
