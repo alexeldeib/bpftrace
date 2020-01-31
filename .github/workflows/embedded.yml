@@ -73,7 +73,8 @@ jobs:
         SKIP=$(echo ${LOC}  | cut -d: -f 1)
         echo "SKIP: "
         echo ${SKIP}
-        sudo dd if=/boot/vmlinuz-$(uname -r) skip=${SKIP} bs=1 | tail -n +1 | zcat > ${GITHUB_WORKSPACE}/vmlinux
+        sudo dd if=/boot/vmlinuz-$(uname -r) skip=${SKIP} bs=1 of=${GITHUB_WORKSPACE}/vmlinux.gz
+        zcat ${GITHUB_WORKSPACE}/vmlinux.gz ${GITHUB_WORKSPACE}/vmlinux
     - name: Build docker container
       run: |
         docker build -t bpftrace-embedded-${{ matrix.env['DISTRO'] }} -f docker/Dockerfile.ubuntu-glibc --build-arg bcc_ref=${{ matrix.env['BCC_REF'] }} --build-arg DISTRO=${{ matrix.env['DISTRO'] }}  docker/
