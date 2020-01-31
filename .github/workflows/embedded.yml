@@ -49,7 +49,7 @@ jobs:
           RUN_ALL_TESTS: 1
           RUNTIME_TEST_DISABLE: builtin.cgroup
           DISTRO: xenial
-          CMAKE_EXTRA_FLAGS: '-DCMAKE_CXX_FLAGS="-include /usr/local/include/bcc/compat/linux/bpf.h -D__LINUX_BPF_H__" ../'
+          CMAKE_EXTRA_FLAGS: "-DCMAKE_CXX_FLAGS=-include /usr/local/include/bcc/compat/linux/bpf.h -D__LINUX_BPF_H__"
     steps:
     - uses: actions/checkout@v2
     - name: Build docker container
