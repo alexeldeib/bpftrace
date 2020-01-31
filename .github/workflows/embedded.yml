@@ -73,7 +73,7 @@ jobs:
         SKIP=$(echo ${LOC}  | cut -d: -f 1)
         echo "SKIP: "
         echo ${SKIP}
-        sudo dd if=/boot/vmlinuz-$(uname -r) skip=${SKIP} bs=1 of=${GITHUB_WORKSPACE}/vmlinux.gz
+        sudo dd if=/boot/vmlinuz-$(uname -r) skip=$(sudo grep -a -b -o -m 1 $'\x1f\x8b\x08\x00' /boot/vmlinuz-$(uname -r)) bs=1 | zcat > ${GITHUB_WORKSPACE}/vmlinux
         zcat < ${GITHUB_WORKSPACE}/vmlinux.gz > ${GITHUB_WORKSPACE}/vmlinux
     - name: Build docker container
       run: |
