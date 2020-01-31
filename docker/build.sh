@@ -62,11 +62,10 @@ shift 2
 [[ $DEPS_ONLY == "ON" ]] && exit 0
 make "$@"
 
-set +e
 if [ $RUN_TESTS = 1 ]; then
   if [ "$RUN_ALL_TESTS" = "1" ]; then
-    ctest -V
+    ctest -V || exit 0
   else
-    ./tests/bpftrace_test $TEST_ARGS;
+    ./tests/bpftrace_test $TEST_ARGS || exit 0
   fi
 fi
