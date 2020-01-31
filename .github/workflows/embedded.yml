@@ -69,7 +69,7 @@ jobs:
     - name: unpack vmlinuz
       run: |
         ls / -al
-        SKIP=$(sudo od -A d -t x1 /boot/vmlinuz-$(uname -r) | grep -a -b -o -m 1 -e $'1f 8b 08 00' | cut -d: -f 1)
+        SKIP=$(sudo od -A d -t x1 /boot/vmlinuz-$(uname -r) | tail -n +1 | grep -a -b -o -m 1 -e $'1f 8b 08 00' | cut -d: -f 1)
         echo "SKIP: "
         echo $SKIP
         sudo dd if=/boot/vmlinuz-$(uname -r) skip=${SKIP} bs=1 | zcat > ${GITHUB_WORKSPACE}/vmlinux
