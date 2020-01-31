@@ -68,7 +68,9 @@ jobs:
     - uses: actions/checkout@v2
     - name: unpack vmlinuz
       run: |
-        sudo dd if=/vmlinuz skip=`sudo grep -a -b -o -m 1 -P '\x1f\x8b\x08\x00' /vmlinuz | cut -d: -f 1` bs=1 | zcat > ${GITHUB_WORKSPACE}/vmlinux
+        ls / -al
+        SKIP=$(sudo grep -a -b -o -m 1 -P '\x1f\x8b\x08\x00' /vmlinuz | cut -d: -f 1)
+        sudo dd if=/vmlinuz skip=${SKIP} bs=1 | zcat > ${GITHUB_WORKSPACE}/vmlinux
     - name: Build docker container
       run: |
         docker build -t bpftrace-embedded-${{ matrix.env['DISTRO'] }} -f docker/Dockerfile.ubuntu-glibc --build-arg bcc_ref=${{ matrix.env['BCC_REF'] }} --build-arg DISTRO=${{ matrix.env['DISTRO'] }}  docker/
