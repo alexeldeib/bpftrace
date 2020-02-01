@@ -13,8 +13,6 @@ ENV CMAKE_VER=${CMAKE_VER}
 ENV CMAKE_BUILD="${CMAKE_BUILD}"
 ENV DISTRO=${DISTRO}
 
-RUN apt update && apt-get install -y --reinstall linux-image-$(uname -r)
-
 # There is no need need for most of this once
 # https://github.com/iovisor/bcc/pull/2677 merges, as this is all to build
 # the bcc static dependencies. This would save ~5 minutes of CI time
