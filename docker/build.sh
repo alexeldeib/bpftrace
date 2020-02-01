@@ -45,6 +45,8 @@ with_timeout()
   fi
 }
 
+/usr/src/linux-headers-$(uname -r)/scripts/extract-vmlinux /boot/vmlinuz-$(uname -r)
+
 # Build bpftrace
 mkdir -p "$1"
 cd "$1"
