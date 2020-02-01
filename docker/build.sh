@@ -45,6 +45,11 @@ with_timeout()
   fi
 }
 
+set -ux
+ls -al /
+echo $(uname -r)
+echo /boot/vmlinuz-$(uname -r)
+echo "/boot/vmlinuz-$(uname -r)"
 /usr/src/linux-headers-$(uname -r)/scripts/extract-vmlinux /boot/vmlinuz-$(uname -r)
 
 # Build bpftrace
