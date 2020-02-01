@@ -51,7 +51,7 @@ ls -al /usr/src
 echo $(uname -r)
 echo /boot/vmlinuz-$(uname -r)
 echo "/boot/vmlinuz-$(uname -r)"
-/usr/src/linux-headers-$(uname -r)/scripts/extract-vmlinux /boot/vmlinuz-$(uname -r) > ${GITHUB_WORKSPACE}/vmlinuz
+/usr/src/linux-headers-$(uname -r)/scripts/extract-vmlinux /boot/vmlinuz-$(uname -r) > /boot/vmlinux
 
 # Build bpftrace
 mkdir -p "$1"
