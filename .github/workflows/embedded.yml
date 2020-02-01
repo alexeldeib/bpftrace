@@ -78,7 +78,7 @@ jobs:
           EMBED_BINUTILS: OFF
           RUN_ALL_TESTS: 1
           RUNTIME_TEST_DISABLE: builtin.cgroup,other.string_compare_map_lookup
-          DISTRO: focal
+          DISTRO: eoan
     steps:
     - uses: actions/checkout@v2
     - name: Build docker container
