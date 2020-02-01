@@ -65,6 +65,20 @@ jobs:
           DISTRO: xenial
           CMAKE_EXTRA_FLAGS: "-DCMAKE_CXX_FLAGS='-include /usr/local/include/bcc/compat/linux/bpf.h -D__LINUX_BPF_H__'"
           BPFTRACE_VMLINUX: /boot/vmlinux
+        - TYPE: Release
+          NAME: vanilla_llvm+clang+glibc2.XX
+          LLVM_VERSION: 11
+          STATIC_LINKING: ON
+          STATIC_LIBC: OFF
+          EMBED_LLVM: ON
+          EMBED_CLANG: ON
+          EMBED_LIBCLANG_ONLY: OFF
+          EMBED_BCC: OFF
+          EMBED_LIBELF: OFF
+          EMBED_BINUTILS: OFF
+          RUN_ALL_TESTS: 1
+          RUNTIME_TEST_DISABLE: builtin.cgroup,other.string_compare_map_lookup
+          DISTRO: focal
     steps:
     - uses: actions/checkout@v2
     - name: Build docker container
