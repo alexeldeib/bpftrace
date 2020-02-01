@@ -46,7 +46,8 @@ with_timeout()
 }
 
 set -ux
-ls -al /
+ls -al /boot
+ls -al /usr/src
 echo $(uname -r)
 echo /boot/vmlinuz-$(uname -r)
 echo "/boot/vmlinuz-$(uname -r)"
