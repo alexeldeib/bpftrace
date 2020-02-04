@@ -19,7 +19,7 @@ jobs:
           EMBED_LIBELF: OFF
           EMBED_BINUTILS: OFF
           RUN_ALL_TESTS: 1
-          RUNTIME_TEST_DISABLE: builtin.cgroup,probe.kprobe_offset_fail_size
+          RUNTIME_TEST_DISABLE: builtin.cgroup,probe.kprobe_offset_fail_size,other.string compare map lookup
           DISTRO: bionic
         - TYPE: Release
           NAME: debian_llvm+libclang+glibc2.27
