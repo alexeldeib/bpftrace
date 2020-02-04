@@ -56,3 +56,4 @@ NAME "uprobes - probe function in non-executable library"
 RUN bpftrace -e 'uprobe:./testlibs/libsimple.so:fun {}'
 EXPECT Attaching 1 probe...
 TIMEOUT 5
+
