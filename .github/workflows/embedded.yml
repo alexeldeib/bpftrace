@@ -61,7 +61,7 @@ jobs:
           EMBED_LIBELF: OFF
           EMBED_BINUTILS: OFF
           RUN_ALL_TESTS: 1
-          RUNTIME_TEST_DISABLE: builtin.cgroup,probe.kprobe_offset_fail_size,other.string_compare_map_lookup
+          RUNTIME_TEST_DISABLE: builtin.cgroup,probe.kprobe_offset_fail_size,other.string compare map lookup
           DISTRO: xenial
           CMAKE_EXTRA_FLAGS: "-DCMAKE_CXX_FLAGS='-include /usr/local/include/bcc/compat/linux/bpf.h -D__LINUX_BPF_H__'"
     steps:
